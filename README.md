@@ -1,6 +1,6 @@
 # dev-static-server
 
-开发用静态资源 HTTP 伺服器。
+开发环境用静态资源 HTTP 伺服器。
 
 ## 动机
 
