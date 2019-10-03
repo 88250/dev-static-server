@@ -1,4 +1,4 @@
-# dev-static-server
+# Dev Static Server
 
 开发环境用静态资源 HTTP 伺服器。
 
@@ -15,4 +15,4 @@
 
 ## 授权
 
-Lute HTTP 使用 [木兰宽松许可证, 第1版](http://license.coscl.org.cn/MulanPSL) 开源协议。
+Dev Static Server 使用 [木兰宽松许可证, 第1版](http://license.coscl.org.cn/MulanPSL) 开源协议。
