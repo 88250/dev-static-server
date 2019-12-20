@@ -43,6 +43,13 @@ func main() {
 	}
 	port := ":9090"
 	fmt.Println(port)
+	http.Handle("/", cors(http.FileServer(http.Dir(`.`))))
+	panic(http.ListenAndServe(port, nil))
+}
 
-	http.ListenAndServe(port, http.FileServer(http.Dir(`.`)))
+func cors(h http.Handler) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		h.ServeHTTP(w, r)
+	}
 }
