@@ -13,12 +13,16 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"net"
 	"net/http"
 )
 
 func main() {
+	portArg := flag.String("p", "9090", "port, default is 9090")
+	flag.Parse()
+
 	ifaces, err := net.Interfaces()
 	if nil != err {
 		fmt.Println("can't get interfaces")
@@ -41,10 +45,11 @@ func main() {
 			}
 		}
 	}
-	port := ":9090"
-	fmt.Println(port)
+
+	port := *portArg
+	fmt.Println(":" + port)
 	http.Handle("/", cors(http.FileServer(http.Dir(`.`))))
-	panic(http.ListenAndServe(port, nil))
+	panic(http.ListenAndServe(":"+port, nil))
 }
 
 func cors(h http.Handler) http.HandlerFunc {
